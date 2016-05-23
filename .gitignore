@@ -3,3 +3,7 @@
 ################################################################################
 
 /KTSerializer/bin/Debug
+/.vs/KTSerializer/v14
+/KTSerializer/obj/Debug
+/KTSerializer.Tests/bin/Debug
+/KTSerializer.Tests/obj/Debug
