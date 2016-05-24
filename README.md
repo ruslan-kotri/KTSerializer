@@ -1,6 +1,6 @@
 Why this project was started.
 
-At first, I needed a quick, but rather robust serializer to store data between application sessions.
+At first, I needed a quick, but rather robust .NET serializer, preferrably written in C#, to store data between application sessions.
 .NET ProtoBuf serializer by Marc Gravell was my initial choice because it was quick enough, produced small data output and was open-source. Actually, it's still used by many of my projects. Not a bad thing, after all.
 
 
@@ -110,6 +110,8 @@ Code example (see it also in ExampleTest.cs file in tests project):
 
 This piece of code stores serialized info in two streams - one stream for header and one for data. These streams are typically saved to files between sessions.
 
+
+Current project state: active bugfix. No new features are supposed to be added in the nearest future.
 
 
 Disclaimer: This code is provided "as is", without guarantee of any sort. Use it at your own risk.
