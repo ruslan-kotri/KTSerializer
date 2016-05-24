@@ -16,6 +16,7 @@ Sometimes, even when I add a valid indexer for new property, data restore breaks
 
 
 So the purposes of the desired serializer were:
+
 1. Allow to easily make changes in inheritance chain (add or remove levels).
 2. Allow move properties/fields between classes in the same inheritance chain.
 3. Allow to change property to field and vice verse.
@@ -42,6 +43,7 @@ Known issues.
 
 How to use?
 There are plenty of examples in the test (with comments; actually, tests are supposed to cover serializer functionality as much as possible), but main line is:
+
 1. Decorate all necessary classes with KTSerialize attribute.
 2. Decorate all necessary properties and fields in classes from the step 1 with KTSerializeInclude attribute.
 3. Use, if necessary, attributes (KTBeforeSerializeAttribute and so like) for methods which are to be called before/after serialization/deserialization.
