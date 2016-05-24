@@ -31,7 +31,7 @@ So the purposes of the desired serializer were:
 
 What was achieved?
 Well, speed sometimes is as good as with protobuf, sometimes slower (20-40%) - it depends mainly on the types of the data serialized/deserialized. Files are 1.5-2 times bigger in size than by protobuf (mainly because I store information about initial type of the current piece of data with it). All other points, and conversions at first line, are supposed to be ready.
-All primitive types plus Color type are serializable. KTSerialize can handle IList<T>, IDictionary<K,V>, collections of collections of these types and so on. [Unfortunately, I failed to find an easy way to directly serialize some useful types like HashSet<T>, so in order to use such type ony should apply appropriate OnSerialize and OnDeserialize actions and store in List or so.]
+All primitive types plus Color type are serializable. KTSerialize can handle IList<T>, IDictionary<K,V>, arrays (T[], T[][]), collections of collections of these types and so on. [Unfortunately, I failed to find an easy way to directly serialize some useful types like HashSet<T>, so in order to use such type ony should apply appropriate OnSerialize and OnDeserialize actions and store in List or so.]
 
 KT Serializer uses GUIDs to decorate stored classes, properties and fields. It allows to change inheritance chain of classes and move properties and fields between classes.
 
