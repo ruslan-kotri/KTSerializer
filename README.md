@@ -79,29 +79,29 @@ Code example (see it also in ExampleTest.cs file in tests project):
         public int notSerializedField = 100;
     }
 
-      public void ExampleMethod()
-      {
-          KTSerializer serializer = new KTSerializer(true);
+        public void ExampleMethod()
+        {
+            KTSerializer serializer = new KTSerializer(true);
 
-          AOne o1, o2;
+            AOne o1, o2;
 
-          o1 = new AOne()
-          {
-              iProperty = 10,
-              notSerializedField = 20
-          };
+            o1 = new AOne()
+            {
+                iProperty = 10,
+                notSerializedField = 20
+            };
 
-          using (MemoryStream headerStream = new MemoryStream())
-          using (MemoryStream stream = new MemoryStream())
-          {
-              serializer.Serialize(stream, o1, headerStream);
+            using (MemoryStream headerStream = new MemoryStream())
+            using (MemoryStream stream = new MemoryStream())
+            {
+                serializer.Serialize(stream, o1, headerStream);
 
-              headerStream.Position = 0;
-              stream.Position = 0;
+                headerStream.Position = 0;
+                stream.Position = 0;
 
-              o2 = serializer.Deserialize<AOne>(stream, headerStream);
-          }
-      }
+                o2 = serializer.Deserialize<AOne>(stream, headerStream);
+            }
+        }
 
 This piece of code stores serialized info in two streams - one stream for header and one for data. These streams are typically saved to files between sessions.
 
