@@ -7,10 +7,13 @@ At first, I needed a quick, but rather robust serializer to store data between a
 Why then to change things that work?
 
 Because some issues with protobuf (I do not know if they come from initial Google design) were inappropriate, at my sight.
-1. Intensive usage of integers in classes and fields/properties decsriptions is an additional burden on a developer. I am to always keep in memory what was the last counter used in current class for not to intercept with removed properties for not to get into trouble with data stored in files. And my automation creation of indexes for inherited classes (well, I was not so good with protobuf then) even now prevents me from inserting additional classes in the middle of the chain in many places.
+
+1.Intensive usage of integers in classes and fields/properties decsriptions is an additional burden on a developer. I am to always keep in memory what was the last counter used in current class for not to intercept with removed properties for not to get into trouble with data stored in files. And my automation creation of indexes for inherited classes (well, I was not so good with protobuf then) even now prevents me from inserting additional classes in the middle of the chain in many places.
 Sometimes, even when I add a valid indexer for new property, data restore breaks for some reason. Only if I skip some numbers (which seem to correlate with some parallel, but unrelated, classes), things begin to work.
-2. What worse, protobuf does not store 'false' and '0' (zero) at serialization. It means that if I have a property which is true by default, it will be a;ways restored as true. Workaround is possible (and I have done it), but it was... embarrassing.
-3. Work with <object> type was quite complicated, when not impossible. I had to serialize object values to strings and deserialize them from strings at restore (fortunately, my code allowed it rather easily, but it was a sheer luck).
+
+2.What worse, protobuf does not store 'false' and '0' (zero) at serialization. It means that if I have a property which is true by default, it will be always restored as true. Workaround is possible (and I have done it), but it was... embarrassing.
+
+3.Work with <object> type was quite complicated, when not impossible. I had to serialize object values to strings and deserialize them from strings at restore (fortunately, my code allowed it rather easily, but it was a sheer luck).
 
 (All this is stated at first half of year 2015. Things may have changed since, I have not proved it since.)
 
